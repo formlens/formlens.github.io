@@ -24,8 +24,8 @@ class FormLensHandler(http.server.SimpleHTTPRequestHandler):
             # Handle requests like /formlens/images/... -> /formLens_project_page/images/...
             relative_path = path[9:]  # Remove '/formlens/'
             self.path = f'/formLens_project_page/{relative_path}'
-        elif path.startswith('/images/') or path.startswith('/results/'):
-            # Handle direct requests to images/ and results/ directories
+        elif path.startswith('/images/') or path.startswith('/results/') or path.startswith('/video/'):
+            # Handle direct requests to images/, results/, and video/ directories
             self.path = f'/formLens_project_page{path}'
         
         # Call the parent class method
